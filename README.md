@@ -1,13 +1,11 @@
 # products-skills
 
-`products-skills` is the skill pack for turning a product idea into shipped
-product work. It gives an AI agent a lightweight but disciplined path from idea
-to judgment, planning, implementation, QA, and handoff.
+`products-skills` turns product ideas into shipped work. It gives an AI agent a
+lightweight but disciplined path from idea to judgment, planning, execution,
+QA, and handoff.
 
-`products-skills` 是一套公开发布级 AI 产品落地技能包。它适合那些
-“不是写几行代码，而是要把一个想法真的做成产品”的场景：从 idea、需求澄清、
-方案判断、任务拆解、工程实现、QA 验证一路推进到交付发布，同时保留“只走当
-前必要阶段”的轻量节奏。
+`products-skills` 是一套公开发布级 AI 产品落地技能包。它把“想法”变成“可
+交付产品”的过程收成一条清晰链路，同时保留“只走当前必要阶段”的轻量节奏。
 
 人人都可以是产品经理。只要你想把一个想法推进成可用产品，这个包就能帮你把
 判断、拆解、验证和交付拉直，而不是让流程把你拖慢。
