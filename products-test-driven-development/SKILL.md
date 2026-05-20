@@ -1,6 +1,6 @@
 ---
 name: products-test-driven-development
-description: "Use when products-skills is about to implement a feature, bugfix, refactor, or behavior change and needs test-first discipline or an explicit safe substitute before changing behavior."
+description: "Use when products-skills is about to implement a feature, known-root-cause bug fix, refactor, or behavior change and needs test-first discipline or an explicit safe substitute before changing behavior."
 triggers: [products tdd, product tdd, test-driven-development, TDD, 测试驱动, 先写测试]
 ---
 
@@ -12,10 +12,13 @@ checked before the behavior is changed.
 
 ## Entry Conditions
 
-- A feature, bug fix, refactor, or behavior change is about to be implemented.
+- A feature, refactor, behavior change, or known-root-cause bug fix is about to
+  be implemented.
 - The expected behavior can be expressed as a test, contract, fixture, CLI check,
   browser check, or artifact inspection.
-- There is enough product direction to know what "correct" means.
+- There is enough product direction or investigation evidence to know what
+  "correct" means.
+- For unknown-root-cause bugs, use `products-investigate` first.
 
 ## Red-Green-Refactor
 

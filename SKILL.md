@@ -49,10 +49,10 @@ Choose the first stage whose entry condition matches the current situation:
    verification, and commit grouping.
 4. `products-plan-eng-review`: the plan or implementation approach needs
    architecture, data flow, dependency, error handling, or testability review.
-5. `products-test-driven-development`: behavior-bearing implementation,
-   refactor, or bug fix is about to begin.
-6. `products-investigate`: observed behavior is surprising, broken, regressed,
+5. `products-investigate`: observed behavior is surprising, broken, regressed,
    or not yet explained.
+6. `products-test-driven-development`: behavior-bearing implementation,
+   refactor, or known-root-cause bug fix is about to begin.
 7. `products-qa`: implementation exists and the user-facing or visible flow
    needs runtime, browser, artifact, or command evidence.
 8. `products-ship`: validation evidence exists and the work needs release
@@ -91,9 +91,9 @@ When this package is active, include:
   refactors or platform work.
 - Ask only questions that materially change the product decision; otherwise
   proceed with a stated assumption.
+- For bugs, investigate root cause before proposing a patch.
 - For code changes, prefer test-first or the closest safe verification before
   behavior-bearing implementation.
-- For bugs, investigate root cause before proposing a patch.
 - For visible product flows, prefer real runtime/browser/artifact evidence over
   abstract confidence.
 - If two attempts fail, stop and summarize known facts, the failing point, and

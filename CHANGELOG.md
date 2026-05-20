@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 - 2026-05-20
+
+- Fixed adaptive routing so unknown-root-cause bugs enter
+  `products-investigate` before `products-test-driven-development`.
+- Clarified that TDD handles known-root-cause bug fixes and other
+  behavior-bearing implementation.
+
 ## 1.0.0 - 2026-05-20
 
 - Established `products-skills` as the canonical package name.

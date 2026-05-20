@@ -68,6 +68,10 @@ stage and uses a gate decision at the end of each stage:
 - `fix-next`: fix a defect before shipping,
 - `ship-ready`: validation and handoff evidence are sufficient for release.
 
+Bug reports have one extra priority rule: unknown-root-cause bugs go to
+`products-investigate` before TDD. `products-test-driven-development` handles
+known-root-cause fixes and other behavior-bearing implementation.
+
 ## Installation
 
 Install from the repository root. Use `--full-depth` so the root skill and all
