@@ -1,29 +1,38 @@
-# 项目级 Codex 工作规则
+# Project Rules for Codex
 
-## 项目概况
+## Project Overview
 
-- 项目名称：products-skills
-- 项目类型：可发布 AI skill 包 / 插件元数据包
-- 主要入口：`SKILL.md`
-- 主要输出物：`SKILL.md`、阶段技能目录、`skill.json`、插件元数据、README
+- Project name: `products-skills`
+- Project type: public AI skill package and plugin metadata package
+- Canonical skill entry: `SKILL.md`
+- Canonical package name: `products-skills`
+- Legacy alias: `product-skills`
+- Main deliverables: root router skill, eight stage skills, metadata, README,
+  changelog, and eval prompts
 
-## 工作模式
+## Working Mode
 
-- 默认轻量模式处理文案、元数据和小范围技能说明更新。
-- 涉及技能名称、安装方式、插件元数据、发布版本、目录结构时使用严格模式。
+- Use lightweight edits for wording, metadata, examples, and documentation.
+- Use stricter review when changing skill names, triggers, install paths,
+  versioning, stage count, or release metadata.
 
-## 维护原则
+## Maintenance Principles
 
-- 保持一套 canonical skill 包，不维护 Codex 和 Claude 两份重复镜像。
-- 根目录 `SKILL.md` 是主路由；阶段技能只做单一职责。
-- 新阶段必须有清晰触发条件、输出格式和验证方式。
-- 产品链路必须保留 8 个包内阶段：brainstorming、autoplan、writing-plans、plan-eng-review、test-driven-development、qa、investigate、ship。
-- 不要把 writing-plans 或 test-driven-development 降级成外部可选依赖。
-- README 顶部必须保留安装方式和 why-this-exists 说明。
+- Maintain one canonical package; do not create separate Codex and Claude
+  mirrors.
+- Keep `products-skills` as the only canonical name.
+- Preserve `product-skills`, `products`, `用 products`, and `走 products` as
+  compatibility aliases.
+- Keep the root `SKILL.md` as the router.
+- Keep stage skills single-purpose and evidence-oriented.
+- Preserve the eight stage model: brainstorming, autoplan, writing-plans,
+  plan-eng-review, test-driven-development, investigate, qa, and ship.
+- Use adaptive gates instead of forcing every task through all eight stages.
+- Do not weaken evidence requirements for TDD, investigation, QA, or shipping.
 
-## 验证
+## Verification
 
-发布前至少执行：
+Before publishing, run:
 
 ```powershell
 npx skills add . --list --full-depth
@@ -32,4 +41,7 @@ npx skills list -g -a codex --json
 npx skills list -g -a claude-code --json
 ```
 
-只提交本仓库内文件，不提交本机安装目录、缓存或下载产物。
+Review `evals/evals.json` when trigger behavior or stage routing changes.
+
+Only commit files in this repository. Do not commit local install directories,
+caches, generated workspaces, or downloaded artifacts.

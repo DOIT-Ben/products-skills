@@ -1,87 +1,112 @@
 # products-skills
 
-`products-skills` 是一套独立的产品开发工作流技能包，供 Codex、Claude Code 和其他 `SKILL.md` 兼容智能体使用。
+`products-skills` is an adaptive product-delivery skill package for AI agents.
+It helps an agent take a product idea from concept to shipped product without
+turning every request into heavy process.
 
-它把一次产品开发协作拆成 8 个清晰阶段：
+`products-skills` 是一套公开发布级 AI 产品落地方法论技能包。它帮助 AI 从
+idea、需求澄清、方案判断、任务拆解、工程实现、QA 验证一路推进到交付发布，
+同时保留“只走当前必要阶段”的轻量节奏。
 
-1. 头脑风暴：把想法、边界、成功标准聊清楚。
-2. 自动方案检查：检查方案有没有漏洞、缺口和风险。
-3. 任务拆解：把方案拆成能执行、能验证的任务。
-4. 工程评审：看架构、边界、依赖、测试和风险。
-5. 测试驱动开发：先写失败测试，再实现。
-6. QA 验证：在真实浏览器或运行环境里验证页面和流程。
-7. 根因调查：出问题先查根因，不乱打补丁。
-8. 交付发布：处理提交、发布准备、风险说明和交接。
+## Why This Exists / 为什么需要它
 
-## 为什么需要它
+AI agents are good at writing code, but product work fails when the agent skips
+the product discipline around the code:
 
-AI 做产品开发时，常见问题不是“不会写代码”，而是：
+- unclear users, jobs, or success criteria,
+- ideas planned before they are judged,
+- tasks too large to verify,
+- architecture and data flow guessed too late,
+- tests added after implementation without proving the missing behavior,
+- UI or runtime flows shipped without real evidence,
+- bugs patched before root cause is known,
+- final handoff missing validation, risk, and rollback notes.
 
-- 需求还没聊清楚就开始实现。
-- 方案没有经过风险检查。
-- 任务拆得太大，执行时容易跑偏。
-- 架构边界、数据流、错误处理没有提前想。
-- 测试在实现后才补，无法证明测试真的抓得住问题。
-- 改完没有真实浏览器或流程验证。
-- 出 bug 后直接补丁，没找到根因。
-- 最后交付时说不清改了什么、怎么验证、还能怎么回滚。
+`products-skills` turns those missing moves into an adaptive workflow. The agent
+chooses the smallest useful stage, records evidence at the gates, and moves
+forward only when the current stage is good enough.
 
-`products-skills` 的目标是把这些动作变成一条稳定链路。你可以让智能体“走 products”，它会按当前任务选择最小必要阶段，不为了流程而流程。
+AI 做产品开发时，问题常常不是“不会写代码”，而是需求、风险、验证、交付这些
+产品动作被跳过了。`products-skills` 的目标是把这些动作变成稳定链路：能快
+的时候快，关键节点必须有证据。
 
-## 安装
+## Canonical Name / 正式名称
 
-推荐使用 Skills CLI 从仓库目录安装。必须带 `--full-depth`，这样才能发现主入口和 8 个阶段技能。
+The canonical package and skill name is `products-skills`.
 
-同时安装到 Codex 和 Claude Code：
+Legacy names remain compatibility aliases only:
+
+- `product-skills`
+- `products`
+- `use products`
+- `用 products`
+- `走 products`
+
+旧称 `product-skills` 不再作为独立包维护，只作为兼容触发词继续生效。
+
+## Workflow
+
+The package contains one router and eight stage skills:
+
+| Stage | Skill | Purpose | Gate |
+|---|---|---|---|
+| 1 | `products-brainstorming` | Turn a fuzzy idea into a product direction. | `continue`, `revise`, `stop` |
+| 2 | `products-autoplan` | Decide go, revise, or stop before planning. | `continue`, `revise`, `stop` |
+| 3 | `products-writing-plans` | Create executable tasks and verification. | `continue`, `revise` |
+| 4 | `products-plan-eng-review` | Review architecture, data flow, dependencies, errors, and testability. | `continue`, `revise` |
+| 5 | `products-test-driven-development` | Require failing tests or explicit substitute checks before behavior changes. | `continue`, `revise`, `fix-next` |
+| 6 | `products-investigate` | Find root cause before patching bugs. | `continue`, `revise`, `fix-next`, `stop` |
+| 7 | `products-qa` | Verify visible/runtime flows with evidence. | `ship-ready`, `fix-next`, `revise` |
+| 8 | `products-ship` | Prepare release, rollback, and handoff notes. | `ship-ready`, `fix-next`, `stop` |
+
+The router does not force all eight stages. It selects the smallest useful
+stage and uses a gate decision at the end of each stage:
+
+- `continue`: move to the named next stage,
+- `revise`: correct the direction or plan before proceeding,
+- `stop`: do not continue as framed,
+- `fix-next`: fix a defect before shipping,
+- `ship-ready`: validation and handoff evidence are sufficient for release.
+
+## Installation
+
+Install from the repository root. Use `--full-depth` so the root skill and all
+stage skills are discovered.
+
+Install for Codex and Claude Code:
 
 ```powershell
 npx skills add . -g -a codex claude-code -y --full-depth
 ```
 
-只安装到 Codex：
+Install for Codex only:
 
 ```powershell
 npx skills add . -g -a codex -y --full-depth
 ```
 
-只安装到 Claude Code：
+Install for Claude Code only:
 
 ```powershell
 npx skills add . -g -a claude-code -y --full-depth
 ```
 
-安装前查看仓库里有哪些技能：
+List skills before installing:
 
 ```powershell
 npx skills add . --list --full-depth
 ```
 
-安装后重启你的智能体会话，让技能列表刷新。
+Restart your agent session after installation so the skill list refreshes.
 
-## 本地开发安装
-
-如果不在仓库根目录，可以把下面的 `<path-to-products-skills>` 换成你的本机仓库路径：
-
-```powershell
-npx skills add <path-to-products-skills> -g -a codex claude-code -y --full-depth
-```
-
-或者在仓库根目录执行：
-
-```powershell
-npx skills add . -g -a codex claude-code -y --full-depth
-```
-
-## 怎么使用
-
-最常用的方式是直接让智能体走主入口：
+## Usage Examples
 
 ```text
-用 products-skills 帮我看这个功能需求，先判断怎么做。
+Use products-skills to turn this idea into a product plan.
 ```
 
 ```text
-走 products，把这个方案拆成能执行的任务。
+走 products，把这个功能从 idea 拆到可执行任务。
 ```
 
 ```text
@@ -89,146 +114,64 @@ npx skills add . -g -a codex claude-code -y --full-depth
 ```
 
 ```text
-用 products 做一轮 QA，验证这个页面流程。
-```
-
-也可以直接点名某个阶段：
-
-```text
-用 products-brainstorming 先帮我梳理这个想法。
+Run products QA for this page flow and tell me if it is ship-ready.
 ```
 
 ```text
-用 products-plan-eng-review 评审这个实现方案。
+Use product-skills for this feature.
 ```
+
+The last example still works because `product-skills` is a legacy alias, but
+the canonical name is `products-skills`.
+
+## Repository Structure
 
 ```text
-用 products-test-driven-development 先写测试再实现。
-```
-
-## 8 个阶段
-
-| 阶段 | 技能名 | 什么时候用 | 输出重点 |
-|---|---|---|---|
-| 1 | `products-brainstorming` | 想法还模糊，用户、边界、成功标准不清楚 | 推荐方向、用户目标、约束、成功标准、关键问题 |
-| 2 | `products-autoplan` | 已有粗方向，需要检查是否值得继续 | go / revise / stop、缺口、风险、下一步 |
-| 3 | `products-writing-plans` | 方向明确，需要拆成可执行任务 | 目标、范围、文件地图、任务、验证、提交计划 |
-| 4 | `products-plan-eng-review` | 实现前需要工程视角评审 | 架构边界、数据流、依赖、错误处理、可测试性 |
-| 5 | `products-test-driven-development` | 要实现功能、修 bug、重构或改行为 | 失败测试、RED/GREEN 命令、实现文件、剩余测试缺口 |
-| 6 | `products-qa` | 改完后要验证页面、表单、导航或可见流程 | 测试流程、证据、错误、回归、ship/fix 建议 |
-| 7 | `products-investigate` | 出现 bug、回归、异常表现 | 复现状态、证据、根因、最小修复、验证命令 |
-| 8 | `products-ship` | 实现和验证完成，需要交付 | 变更摘要、测试证据、风险、回滚、发布或交接说明 |
-
-主入口：
-
-| 技能名 | 作用 |
-|---|---|
-| `products-skills` | 产品开发总路由。根据当前任务选择上面 8 个阶段中最合适的一个或几个。 |
-
-## 适合什么任务
-
-适合：
-
-- 新功能从想法到实现。
-- 已有功能的迭代和重构。
-- Web 页面、表单、后台工具、SaaS 工作流。
-- 需要先评审方案再动代码的任务。
-- 需要真实验证和交付说明的任务。
-- bug、回归、异常行为的根因调查。
-
-不适合：
-
-- 一句话问答。
-- 纯翻译、纯总结、纯改文案。
-- 完全不涉及产品、代码、流程或交付的任务。
-- 用户明确要求直接回答、不走流程的场景。
-
-## 手动安装
-
-如果你的智能体不支持 Skills CLI，只要它支持 `SKILL.md` 目录结构，可以手动放到技能根目录：
-
-```text
-<skills-root>\products-skills\SKILL.md
-<skills-root>\products-skills\products-brainstorming\SKILL.md
-<skills-root>\products-skills\products-autoplan\SKILL.md
-<skills-root>\products-skills\products-writing-plans\SKILL.md
-<skills-root>\products-skills\products-plan-eng-review\SKILL.md
-<skills-root>\products-skills\products-test-driven-development\SKILL.md
-<skills-root>\products-skills\products-qa\SKILL.md
-<skills-root>\products-skills\products-investigate\SKILL.md
-<skills-root>\products-skills\products-ship\SKILL.md
-```
-
-复制到任意兼容 `SKILL.md` 的技能根目录：
-
-```powershell
-Copy-Item -Recurse . "<skills-root>\products-skills"
-```
-
-## 仓库结构
-
-```text
-products-skills\
-  README.md
-  LICENSE
-  skill.json
+products-skills/
   SKILL.md
-  .codex-plugin\
+  README.md
+  CHANGELOG.md
+  skill.json
+  evals/
+    evals.json
+  .codex-plugin/
     plugin.json
-  .claude-plugin\
+  .claude-plugin/
     plugin.json
     marketplace.json
-  products-brainstorming\
+  products-brainstorming/
     SKILL.md
-  products-autoplan\
+  products-autoplan/
     SKILL.md
-  products-writing-plans\
+  products-writing-plans/
     SKILL.md
-  products-plan-eng-review\
+  products-plan-eng-review/
     SKILL.md
-  products-test-driven-development\
+  products-test-driven-development/
     SKILL.md
-  products-qa\
+  products-investigate/
     SKILL.md
-  products-investigate\
+  products-qa/
     SKILL.md
-  products-ship\
+  products-ship/
     SKILL.md
 ```
 
-## 元数据文件
+## Validation
 
-仓库包含轻量元数据，方便不同智能体或插件系统索引：
+Before publishing a release, run:
 
-- `skill.json`
-- `.codex-plugin\plugin.json`
-- `.claude-plugin\plugin.json`
-- `.claude-plugin\marketplace.json`
-
-这些文件只描述技能包，不复制技能内容。真正的技能入口是根目录 `SKILL.md` 和各阶段目录。
-
-## 常见问题
-
-### 为什么安装命令要带 `--full-depth`？
-
-因为仓库根目录有主入口 `SKILL.md`，同时子目录里还有 8 个阶段技能。某些 Skills CLI 版本默认只发现根目录主入口；加 `--full-depth` 才会扫描全部子目录。
-
-### `product-skills` 和 `products-skills` 是什么关系？
-
-`products-skills` 是当前仓库和主技能名。`product-skills` 是旧称，主入口里保留了兼容触发词，方便旧习惯继续生效。
-
-### 一定要完整走 8 个阶段吗？
-
-不需要。主入口会选择当前最小必要阶段。比如一个 bug 可能直接进入 `products-investigate`，一个已完成改动可能直接进入 `products-qa` 或 `products-ship`。
-
-### UI 设计任务怎么办？
-
-如果你同时安装了 `jobs-design`，可以让智能体把 UI 任务和 `jobs-design` 搭配使用：
-
-```text
-用 products 规划这个页面功能，用 jobs-design 约束界面设计。
+```powershell
+npx skills add . --list --full-depth
+npx skills add . -g -a codex claude-code -y --full-depth
+npx skills list -g -a codex --json
+npx skills list -g -a claude-code --json
 ```
 
-## 许可证
+Scenario prompts live in `evals/evals.json`. They cover fuzzy ideas, rough
+directions, implementation planning, bugs, QA, shipping, short non-product
+questions, and the legacy `product-skills` alias.
+
+## License
 
 MIT

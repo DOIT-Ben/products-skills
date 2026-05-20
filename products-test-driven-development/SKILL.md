@@ -1,35 +1,57 @@
 ---
 name: products-test-driven-development
-description: Use when `products-skills` is about to implement a feature, bugfix, refactor, or behavior change and needs test-first discipline.
+description: "Use when products-skills is about to implement a feature, bugfix, refactor, or behavior change and needs test-first discipline or an explicit safe substitute before changing behavior."
 triggers: [products tdd, product tdd, test-driven-development, TDD, 测试驱动, 先写测试]
 ---
 
 # Products Test-Driven Development
 
-Use this before changing behavior. The point is confidence: a test that fails
-first proves the intended behavior is actually being checked.
+Use this before behavior-bearing implementation. The point is confidence: a
+test or explicit verification check must prove the intended behavior is being
+checked before the behavior is changed.
+
+## Entry Conditions
+
+- A feature, bug fix, refactor, or behavior change is about to be implemented.
+- The expected behavior can be expressed as a test, contract, fixture, CLI check,
+  browser check, or artifact inspection.
+- There is enough product direction to know what "correct" means.
 
 ## Red-Green-Refactor
 
-1. RED: write one minimal failing test for the desired behavior.
+1. RED: write one minimal failing test or verification check for the desired
+   behavior.
 2. Verify RED: run the exact command and confirm the failure is expected.
-3. GREEN: implement the smallest change that passes the test.
+3. GREEN: implement the smallest change that passes the check.
 4. Verify GREEN: rerun the exact command and confirm it passes.
-5. REFACTOR: clean up only after green, keeping tests passing.
+5. REFACTOR: clean up only after green, keeping checks passing.
+
+## Allowed Substitute
+
+If automated tests are not practical, state the substitute before implementation:
+
+- exact manual/browser/runtime check,
+- why an automated test is not practical now,
+- what evidence will prove the behavior works,
+- what follow-up test gap remains.
 
 ## Output
 
+- Stage: `products-test-driven-development`.
 - Behavior under test.
-- Test file and exact test name.
+- Test or verification file/check and exact name.
 - RED command and expected failure.
 - Implementation files touched.
 - GREEN command and passing result.
 - Remaining gaps or follow-up tests.
+- Gate: `continue`, `revise`, or `fix-next`.
+- Next: usually `products-qa` or `products-ship`.
 
-## Rules
+## Gate Rules
 
-- No behavior-bearing implementation before a failing test or explicit user-approved substitute.
-- If the test passes immediately, rewrite it; it did not prove the missing behavior.
-- If the test fails for setup or typo reasons, fix the test until it fails for the right reason.
-- Do not broaden scope during GREEN.
-- Bug fixes must include a regression test for the original symptom.
+- Use `continue` when behavior passes the agreed test or substitute check.
+- Use `revise` when the test does not actually check the intended behavior.
+- Use `fix-next` when implementation still fails verification.
+
+If the test passes immediately, rewrite it; it did not prove the missing
+behavior. Bug fixes must include a regression check for the original symptom.

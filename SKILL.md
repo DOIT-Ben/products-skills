@@ -1,56 +1,111 @@
 ---
 name: products-skills
-description: Use when the user says products, products-skills, product-skills, or asks for a structured product delivery workflow across brainstorming, autoplan, writing plans, engineering review, TDD, QA, investigation, or shipping.
-triggers: [products, products-skills, product-skills, use products, 走 products, 用 products, product workflow, product delivery workflow, brainstorming, 头脑风暴, writing-plans, test-driven-development, TDD]
+description: "Use whenever the user says products, products-skills, product-skills, use products, 走 products, 用 products, or asks an AI agent to take a product idea from concept to shipped product. This is the canonical adaptive product-delivery workflow for idea clarification, product judgment, executable planning, engineering review, TDD, root-cause investigation, QA evidence, and release handoff."
+triggers: [products, products-skills, product-skills, use products, 走 products, 用 products, product workflow, product delivery workflow, idea to product, concept to shipped product, 从 idea 到产品落地, 产品落地]
 ---
 
 # Products Skills Router
 
-Use the smallest stage that can finish the user's current product work. Treat
-`products`, `products-skills`, and legacy `product-skills` as the same workflow.
+`products-skills` is the canonical package name. Treat legacy `product-skills`
+as a compatibility alias only. If the user uses the legacy name, continue with
+this package and mention that `products-skills` is the canonical name when it
+helps avoid confusion.
 
-This package is a product-delivery router. It is not a ceremony generator. Pick
-one stage, do real work, verify it, then move to the next stage only when needed.
+This skill is not a generic planning helper. It is an adaptive product-delivery
+methodology for helping users move from idea to shipped product with evidence at
+the points where evidence matters.
+
+## Core Principle
+
+Use the smallest useful stage that can advance or finish the user's current
+product work. Do not run all stages by default. Do not skip evidence gates when
+the work affects behavior, release readiness, user experience, or debugging.
 
 ## When To Use
 
-- The task affects a feature, workflow, user-facing behavior, release, or multi-file implementation.
-- The user asks to brainstorm, clarify, plan, build, debug, review, QA, or ship a product change.
-- The task requires choosing between multiple implementation approaches.
-- The task has meaningful risk: data changes, UI behavior, architecture, dependencies, security, performance, or release impact.
+- The user asks to shape, evaluate, plan, build, debug, QA, or ship a product.
+- The task affects a feature, workflow, user-facing behavior, release, or
+  multi-file implementation.
+- The user needs help moving from a vague idea to a practical product slice.
+- The work has meaningful risk: UX behavior, data flow, architecture,
+  dependencies, security, performance, testing, rollout, or recovery.
 
 ## When Not To Use
 
-- The user only asks for a short explanation.
-- The task is a tiny one-off edit with no behavior change.
+- The user only asks for a short factual answer.
+- The task is purely writing, translation, summarization, or copy editing.
 - The user explicitly asks for a direct answer without workflow.
-- The task is purely writing, translation, or summarization.
+- The edit is tiny and has no product, behavior, delivery, or release impact.
 
-## Bundled Stages
+## Adaptive Stage Selection
 
-- `products-brainstorming`: clarify the idea, boundaries, users, and success criteria.
-- `products-autoplan`: automatically inspect the proposed direction for gaps, risks, and missing requirements.
-- `products-writing-plans`: split an approved direction into executable tasks.
-- `products-plan-eng-review`: review architecture, boundaries, dependencies, error handling, and engineering risk.
-- `products-test-driven-development`: write failing tests before behavior-bearing implementation.
-- `products-qa`: verify pages, forms, navigation, and visible flows in a real browser or equivalent runtime.
-- `products-investigate`: find root cause before patching bugs or regressions.
-- `products-ship`: handle commit, release readiness, rollback notes, and delivery handoff.
+Choose the first stage whose entry condition matches the current situation:
 
-## Companion Skills
+1. `products-brainstorming`: the idea, user, problem, boundary, or success
+   criteria are unclear.
+2. `products-autoplan`: a rough direction exists and needs a go, revise, or
+   stop decision before detailed planning.
+3. `products-writing-plans`: the direction is clear and needs executable tasks,
+   verification, and commit grouping.
+4. `products-plan-eng-review`: the plan or implementation approach needs
+   architecture, data flow, dependency, error handling, or testability review.
+5. `products-test-driven-development`: behavior-bearing implementation,
+   refactor, or bug fix is about to begin.
+6. `products-investigate`: observed behavior is surprising, broken, regressed,
+   or not yet explained.
+7. `products-qa`: implementation exists and the user-facing or visible flow
+   needs runtime, browser, artifact, or command evidence.
+8. `products-ship`: validation evidence exists and the work needs release
+   readiness, rollback, or handoff notes.
 
-Use these if they are available in the current agent runtime:
+## Gate Decisions
 
-- `jobs-design`: UI-heavy work needs product-focused frontend constraints.
+Every stage must end with exactly one gate decision:
 
-If a companion skill is unavailable, continue with the closest practical fallback:
-clarify the goal, write a compact plan, add verification before changing behavior,
-and report evidence.
+- `continue`: current stage is good enough; name the next stage.
+- `revise`: direction or plan needs correction before moving forward.
+- `stop`: the request should not continue as framed; explain why and name the
+  smallest useful alternative.
+- `fix-next`: a defect or verification failure must be fixed before shipping.
+- `ship-ready`: validation and handoff evidence are sufficient for release.
+
+Use `continue` for normal stage transitions, `fix-next` for failing QA or known
+implementation defects, and `ship-ready` only from release or QA contexts with
+credible evidence.
+
+## Required Response Shape
+
+When this package is active, include:
+
+- Stage: the selected `products-*` stage.
+- Reason: why this is the smallest useful stage.
+- Evidence: commands, logs, code references, browser checks, screenshots,
+  artifact inspection, or explicit "not yet available" with why.
+- Gate: one of `continue`, `revise`, `stop`, `fix-next`, or `ship-ready`.
+- Next: the next stage, next action, or stop condition.
 
 ## Operating Rules
 
-- Start with a recommendation and the reason.
-- Keep scope to the user's product goal; do not expand into unrelated refactors.
-- Prefer real commands, tests, logs, browser checks, parser checks, and direct artifact inspection over abstract confidence.
-- If two attempts fail, stop and summarize known facts, the failing point, and the smallest next action.
-- Report changed files, verification evidence, risks, and the next handoff step when work is complete.
+- Prefer concrete product slices over broad roadmaps.
+- Keep scope tied to the user's product goal; do not expand into unrelated
+  refactors or platform work.
+- Ask only questions that materially change the product decision; otherwise
+  proceed with a stated assumption.
+- For code changes, prefer test-first or the closest safe verification before
+  behavior-bearing implementation.
+- For bugs, investigate root cause before proposing a patch.
+- For visible product flows, prefer real runtime/browser/artifact evidence over
+  abstract confidence.
+- If two attempts fail, stop and summarize known facts, the failing point, and
+  the smallest next action.
+
+## Companion Skills
+
+Use companion skills when available and relevant:
+
+- `jobs-design`: UI-heavy product work that needs design constraints.
+- Security or domain-specific review skills when the product work touches that
+  domain.
+
+If a companion skill is unavailable, continue with the closest practical
+fallback and report the gap.

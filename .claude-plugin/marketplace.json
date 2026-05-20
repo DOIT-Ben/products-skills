@@ -5,14 +5,14 @@
     "name": "Products Skills Maintainers"
   },
   "metadata": {
-    "description": "Structured product delivery workflow skills for brainstorming, planning, TDD, QA, debugging, and shipping.",
+    "description": "AI workflow skills for taking product ideas from concept to shipped product.",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "products-skills",
       "source": "./",
-      "description": "A product workflow skill package that routes work through scoped stages for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
+      "description": "Adaptive product-delivery workflow skills for brainstorming, product judgment, planning, engineering review, TDD, investigation, QA evidence, and shipping.",
       "version": "1.0.0",
       "author": {
         "name": "Products Skills Maintainers"
@@ -20,6 +20,7 @@
       "keywords": [
         "product",
         "products",
+        "idea-to-product",
         "workflow",
         "brainstorming",
         "planning",

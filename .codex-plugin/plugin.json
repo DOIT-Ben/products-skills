@@ -1,7 +1,7 @@
 {
   "name": "products-skills",
   "version": "1.0.0",
-  "description": "Product delivery workflow skills for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
+  "description": "AI workflow skills for taking product ideas from concept to shipped product with adaptive product-delivery gates.",
   "author": {
     "name": "Products Skills Maintainers"
   },
@@ -11,6 +11,7 @@
   "keywords": [
     "product",
     "products",
+    "idea-to-product",
     "workflow",
     "brainstorming",
     "planning",
@@ -22,8 +23,8 @@
   "skills": "./",
   "interface": {
     "displayName": "Products Skills",
-    "shortDescription": "Structured product delivery workflow skills.",
-    "longDescription": "Routes product work through scoped stages for brainstorming, product direction, executable planning, engineering review, test-driven development, root-cause investigation, QA evidence, and release handoff.",
+    "shortDescription": "Take product ideas from concept to shipped product.",
+    "longDescription": "Routes AI product work through adaptive gates for brainstorming, product judgment, executable planning, engineering review, test-driven development, root-cause investigation, QA evidence, and release handoff.",
     "developerName": "Products Skills Maintainers",
     "category": "Productivity",
     "capabilities": [
@@ -33,9 +34,9 @@
     ],
     "websiteURL": "https://github.com/DOIT-Ben/products-skills",
     "defaultPrompt": [
-      "Use products-skills to review this feature.",
-      "Brainstorm this product idea with products.",
-      "Run products QA for this change."
+      "Use products-skills to turn this idea into a product plan.",
+      "Run products on this feature and choose the next stage.",
+      "Run products QA for this change and tell me if it is ship-ready."
     ],
     "brandColor": "#2563EB"
   }

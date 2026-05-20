@@ -1,0 +1,61 @@
+{
+  "skill_name": "products-skills",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fuzzy-idea-enters-brainstorming",
+      "prompt": "Use products-skills. I have an idea for an AI tool that turns messy meeting notes into follow-up tasks, but I am not sure what the first product should be.",
+      "expected_output": "Selects products-brainstorming, clarifies user/job/problem/success criteria, offers 2-3 options, recommends a first slice, and ends with a gate decision.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "rough-direction-enters-autoplan",
+      "prompt": "走 products。我想做一个浏览器插件，自动总结网页并保存到 Notion。先判断这个方向值不值得继续。",
+      "expected_output": "Selects products-autoplan, evaluates value/scope/risks/verification, returns go/revise/stop, and names the smallest next action.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "clear-feature-enters-writing-plan-or-engineering-review",
+      "prompt": "Use products-skills to plan implementation for adding team workspaces, roles, and invite links to an existing SaaS dashboard.",
+      "expected_output": "Selects products-writing-plans or products-plan-eng-review, avoids direct implementation, defines scope, tasks, verification, risks, and next stage.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "bug-enters-investigation",
+      "prompt": "用 products 看这个 bug：用户保存表单后偶尔回到空白页。不要直接补丁，先查根因。",
+      "expected_output": "Selects products-investigate, asks for or describes reproduction evidence, separates symptoms from root cause, proposes minimal fix path and validation check.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "implemented-page-enters-qa",
+      "prompt": "Run products QA for the checkout page I just changed. I need to know whether the flow is ship-ready.",
+      "expected_output": "Selects products-qa, defines tested flow/environment/evidence, checks runtime or browser-style evidence expectations, and ends with ship-ready, fix-next, or revise.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "validated-work-enters-ship",
+      "prompt": "Use products to prepare the release handoff. The feature is implemented and tests plus browser QA passed.",
+      "expected_output": "Selects products-ship, summarizes change, tests, touched surfaces, risks, rollback or recovery note, handoff language, and release gate.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "short-answer-does-not-force-workflow",
+      "prompt": "What does TDD mean? Answer briefly.",
+      "expected_output": "Does not force the products workflow; gives a short direct answer because the request is not product delivery work.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "legacy-alias-still-routes-to-canonical-package",
+      "prompt": "Use product-skills for this feature idea: a tiny CRM for freelancers. Help me go from idea to product.",
+      "expected_output": "Routes to products-skills, optionally notes product-skills is a legacy alias, selects the right first stage, and uses the adaptive gate response shape.",
+      "files": []
+    }
+  ]
+}

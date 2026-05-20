@@ -1,7 +1,7 @@
 {
   "name": "products-skills",
   "displayName": "Products Skills",
-  "description": "A product delivery workflow skill package for Codex, Claude Code, and SKILL.md-compatible agents. It routes product work through scoped stages for brainstorming, autoplan, writing plans, engineering review, TDD, QA, investigation, and shipping.",
+  "description": "AI workflow skills for taking product ideas from concept to shipped product with adaptive gates for brainstorming, product judgment, implementation planning, engineering review, TDD, investigation, QA, and release handoff.",
   "version": "1.0.0",
   "author": "Products Skills Maintainers",
   "license": "MIT",
@@ -10,6 +10,7 @@
   "keywords": [
     "product",
     "products",
+    "idea-to-product",
     "workflow",
     "brainstorming",
     "planning",

@@ -1,14 +1,17 @@
 {
   "name": "products-skills",
-  "description": "Structured product delivery workflow skills for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
+  "description": "AI workflow skills for taking product ideas from concept to shipped product with adaptive gates for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
   "version": "1.0.0",
   "author": {
     "name": "Products Skills Maintainers"
   },
+  "homepage": "https://github.com/DOIT-Ben/products-skills",
+  "repository": "https://github.com/DOIT-Ben/products-skills",
   "license": "MIT",
   "keywords": [
     "product",
     "products",
+    "idea-to-product",
     "workflow",
     "brainstorming",
     "planning",
