@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 - 2026-05-20
+
+- Aligned the README workflow table with the router order.
+- Synced package and plugin metadata versions with the latest release line.
+
 ## 1.0.1 - 2026-05-20
 
 - Fixed adaptive routing so unknown-root-cause bugs enter

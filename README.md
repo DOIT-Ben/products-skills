@@ -75,8 +75,8 @@ The package contains one router and eight stage skills:
 | 2 | `products-autoplan` | Decide go, revise, or stop before planning. | `continue`, `revise`, `stop` |
 | 3 | `products-writing-plans` | Create executable tasks and verification. | `continue`, `revise` |
 | 4 | `products-plan-eng-review` | Review architecture, data flow, dependencies, errors, and testability. | `continue`, `revise` |
-| 5 | `products-test-driven-development` | Require failing tests or explicit substitute checks before behavior changes. | `continue`, `revise`, `fix-next` |
-| 6 | `products-investigate` | Find root cause before patching bugs. | `continue`, `revise`, `fix-next`, `stop` |
+| 5 | `products-investigate` | Find root cause before patching bugs. | `continue`, `revise`, `fix-next`, `stop` |
+| 6 | `products-test-driven-development` | Require failing tests or explicit substitute checks before behavior changes. | `continue`, `revise`, `fix-next` |
 | 7 | `products-qa` | Verify visible/runtime flows with evidence. | `ship-ready`, `fix-next`, `revise` |
 | 8 | `products-ship` | Prepare release, rollback, and handoff notes. | `ship-ready`, `fix-next`, `stop` |
 
