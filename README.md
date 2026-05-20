@@ -9,6 +9,9 @@ to judgment, planning, implementation, QA, and handoff.
 方案判断、任务拆解、工程实现、QA 验证一路推进到交付发布，同时保留“只走当
 前必要阶段”的轻量节奏。
 
+人人都可以是产品经理。只要你想把一个想法推进成可用产品，这个包就能帮你把
+判断、拆解、验证和交付拉直，而不是让流程把你拖慢。
+
 ## Why This Exists / 为什么需要它
 
 AI agents are good at writing code, but product work fails when the agent skips
@@ -30,6 +33,20 @@ forward only when the current stage is good enough.
 If you are building something real, this package gives the work a better spine:
 judge the idea first, plan the smallest viable slice, verify the important
 edges, and ship with evidence instead of guesses.
+
+## Who It Is For / 适合谁
+
+- 想把一个点子快速判断成“值得做 / 不值得做”的人。
+- 需要把模糊需求拆成可执行任务的人。
+- 想让 AI 先评审、再规划、再实现的人。
+- 需要 QA、交付、回滚和证据链的人。
+
+## What You Get / 你会得到什么
+
+- 更快的判断，不绕弯。
+- 更小的第一版，不空转。
+- 更清楚的证据，不靠猜。
+- 更稳的交付，不拍脑袋。
 
 AI 做产品开发时，问题常常不是“不会写代码”，而是需求、风险、验证、交付这些
 产品动作被跳过了。`products-skills` 的目标是把这些动作变成稳定链路：能快的
