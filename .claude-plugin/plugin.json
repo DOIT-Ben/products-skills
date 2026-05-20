@@ -3,7 +3,7 @@
   "description": "AI workflow skills for taking product ideas from concept to shipped product with adaptive gates for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
   "version": "1.0.3",
   "author": {
-    "name": "Products Skills Maintainers"
+    "name": "DOIT-Ben"
   },
   "homepage": "https://github.com/DOIT-Ben/products-skills",
   "repository": "https://github.com/DOIT-Ben/products-skills",

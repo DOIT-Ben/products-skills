@@ -200,7 +200,7 @@ products-skills/
 
 ## 发布前验证
 
-维护者发布前建议执行：
+发布前可执行：
 
 ```powershell
 npx skills add . --list --full-depth

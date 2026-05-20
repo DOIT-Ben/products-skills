@@ -2,7 +2,7 @@
   "name": "products-skills",
   "id": "products-skills",
   "owner": {
-    "name": "Products Skills Maintainers"
+    "name": "DOIT-Ben"
   },
   "metadata": {
     "description": "AI workflow skills for taking product ideas from concept to shipped product.",
@@ -15,7 +15,7 @@
       "description": "Adaptive product-delivery workflow skills for brainstorming, product judgment, planning, engineering review, TDD, investigation, QA evidence, and shipping.",
       "version": "1.0.3",
       "author": {
-        "name": "Products Skills Maintainers"
+        "name": "DOIT-Ben"
       },
       "keywords": [
         "product",
