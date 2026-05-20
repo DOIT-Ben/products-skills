@@ -1,5 +1,8 @@
 # products-skills
 
+中文说明为主。English readers: click here for the English version:
+[README.en.md](./README.en.md)
+
 **人人都可以是产品经理。**
 
 `products-skills` 是一套公开可复用的 AI 产品落地技能包。它帮助 AI agent
