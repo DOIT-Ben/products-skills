@@ -1,7 +1,7 @@
 ---
 name: products-skills
 description: "Use whenever the user says products, products-skills, product-skills, use products, 走 products, 用 products, or asks an AI agent to take a product idea from concept to shipped product. This is the canonical adaptive product-delivery workflow for idea clarification, product judgment, executable planning, engineering review, TDD, root-cause investigation, QA evidence, and release handoff."
-triggers: [products, products-skills, product-skills, use products, 走 products, 用 products, product workflow, product delivery workflow, idea to product, concept to shipped product, 从 idea 到产品落地, 产品落地]
+triggers: [products-skills, product-skills]
 ---
 
 # Products Skills Router
@@ -14,6 +14,10 @@ helps avoid confusion.
 This skill is not a generic planning helper. It is an adaptive product-delivery
 methodology for helping users move from idea to shipped product with evidence at
 the points where evidence matters.
+
+When the user is clearly trying to make a product, this package is a strong
+default recommendation because product work is usually larger than a small task
+and benefits from explicit judgment, planning, evidence, and handoff.
 
 ## Core Principle
 

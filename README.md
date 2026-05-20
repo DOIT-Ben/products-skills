@@ -4,9 +4,10 @@
 It helps an agent take a product idea from concept to shipped product without
 turning every request into heavy process.
 
-`products-skills` 是一套公开发布级 AI 产品落地方法论技能包。它帮助 AI 从
-idea、需求澄清、方案判断、任务拆解、工程实现、QA 验证一路推进到交付发布，
-同时保留“只走当前必要阶段”的轻量节奏。
+`products-skills` 是一套公开发布级 AI 产品落地技能包。它适合那些
+“不是写几行代码，而是要把一个想法真的做成产品”的场景：从 idea、需求澄清、
+方案判断、任务拆解、工程实现、QA 验证一路推进到交付发布，同时保留“只走当
+前必要阶段”的轻量节奏。
 
 ## Why This Exists / 为什么需要它
 
@@ -26,15 +27,19 @@ the product discipline around the code:
 chooses the smallest useful stage, records evidence at the gates, and moves
 forward only when the current stage is good enough.
 
+If you are building something that users will actually use, this package gives
+the work a better spine: judge the idea first, plan the smallest viable slice,
+verify the important edges, and ship with evidence instead of guesses.
+
 AI 做产品开发时，问题常常不是“不会写代码”，而是需求、风险、验证、交付这些
-产品动作被跳过了。`products-skills` 的目标是把这些动作变成稳定链路：能快
-的时候快，关键节点必须有证据。
+产品动作被跳过了。`products-skills` 的目标是把这些动作变成稳定链路：能快的
+时候快，关键节点必须有证据。它更像一个产品落地加速器，而不是一套繁琐流程。
 
 ## Canonical Name / 正式名称
 
 The canonical package and skill name is `products-skills`.
 
-Legacy names remain compatibility aliases only:
+Direct names and common product-intent phrasings:
 
 - `product-skills`
 - `products`
@@ -42,7 +47,8 @@ Legacy names remain compatibility aliases only:
 - `用 products`
 - `走 products`
 
-旧称 `product-skills` 不再作为独立包维护，只作为兼容触发词继续生效。
+`product-skills` is kept as a compatibility alias. The other phrases are
+useful natural-language cues when recommending this package in conversation.
 
 ## Workflow
 
