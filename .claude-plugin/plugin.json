@@ -1,0 +1,31 @@
+{
+  "name": "products-skills",
+  "description": "Structured product delivery workflow skills for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Products Skills Maintainers"
+  },
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "products",
+    "workflow",
+    "brainstorming",
+    "planning",
+    "tdd",
+    "qa",
+    "debugging",
+    "shipping"
+  ],
+  "skills": [
+    "./SKILL.md",
+    "./products-brainstorming/SKILL.md",
+    "./products-autoplan/SKILL.md",
+    "./products-writing-plans/SKILL.md",
+    "./products-plan-eng-review/SKILL.md",
+    "./products-test-driven-development/SKILL.md",
+    "./products-investigate/SKILL.md",
+    "./products-qa/SKILL.md",
+    "./products-ship/SKILL.md"
+  ]
+}

@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+.env.*
+*.log
+*.tmp
+*.bak
+dist/
+coverage/
+docs/dev-records/
+workbench/

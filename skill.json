@@ -1,0 +1,48 @@
+{
+  "name": "products-skills",
+  "displayName": "Products Skills",
+  "description": "A product delivery workflow skill package for Codex, Claude Code, and SKILL.md-compatible agents. It routes product work through scoped stages for brainstorming, autoplan, writing plans, engineering review, TDD, QA, investigation, and shipping.",
+  "version": "1.0.0",
+  "author": "Products Skills Maintainers",
+  "license": "MIT",
+  "homepage": "https://github.com/DOIT-Ben/products-skills",
+  "repository": "https://github.com/DOIT-Ben/products-skills",
+  "keywords": [
+    "product",
+    "products",
+    "workflow",
+    "brainstorming",
+    "planning",
+    "tdd",
+    "test-driven-development",
+    "qa",
+    "debugging",
+    "shipping",
+    "codex",
+    "claude",
+    "ai-skill"
+  ],
+  "platforms": [
+    "codex",
+    "claude",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "kiro",
+    "opencode",
+    "continue"
+  ],
+  "skills": [
+    "./SKILL.md",
+    "./products-brainstorming/SKILL.md",
+    "./products-autoplan/SKILL.md",
+    "./products-writing-plans/SKILL.md",
+    "./products-plan-eng-review/SKILL.md",
+    "./products-test-driven-development/SKILL.md",
+    "./products-investigate/SKILL.md",
+    "./products-qa/SKILL.md",
+    "./products-ship/SKILL.md"
+  ],
+  "install": "npx skills add . -g -a codex claude-code -y --full-depth"
+}

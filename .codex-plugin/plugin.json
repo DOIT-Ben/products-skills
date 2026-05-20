@@ -1,0 +1,42 @@
+{
+  "name": "products-skills",
+  "version": "1.0.0",
+  "description": "Product delivery workflow skills for brainstorming, planning, engineering review, TDD, investigation, QA, and shipping.",
+  "author": {
+    "name": "Products Skills Maintainers"
+  },
+  "homepage": "https://github.com/DOIT-Ben/products-skills",
+  "repository": "https://github.com/DOIT-Ben/products-skills",
+  "license": "MIT",
+  "keywords": [
+    "product",
+    "products",
+    "workflow",
+    "brainstorming",
+    "planning",
+    "tdd",
+    "qa",
+    "debugging",
+    "shipping"
+  ],
+  "skills": "./",
+  "interface": {
+    "displayName": "Products Skills",
+    "shortDescription": "Structured product delivery workflow skills.",
+    "longDescription": "Routes product work through scoped stages for brainstorming, product direction, executable planning, engineering review, test-driven development, root-cause investigation, QA evidence, and release handoff.",
+    "developerName": "Products Skills Maintainers",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/DOIT-Ben/products-skills",
+    "defaultPrompt": [
+      "Use products-skills to review this feature.",
+      "Brainstorm this product idea with products.",
+      "Run products QA for this change."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
