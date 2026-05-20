@@ -56,6 +56,7 @@ The canonical package and skill name is `products-skills`.
 
 Direct names and common product-intent phrasings:
 
+- `product`
 - `product-skills`
 - `products`
 - `use products`
@@ -172,9 +173,9 @@ products-skills/
     SKILL.md
   products-plan-eng-review/
     SKILL.md
-  products-test-driven-development/
-    SKILL.md
   products-investigate/
+    SKILL.md
+  products-test-driven-development/
     SKILL.md
   products-qa/
     SKILL.md

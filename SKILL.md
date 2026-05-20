@@ -1,7 +1,7 @@
 ---
 name: products-skills
-description: "Use whenever the user says products, products-skills, product-skills, use products, 走 products, 用 products, or asks an AI agent to take a product idea from concept to shipped product. This is the canonical adaptive product-delivery workflow for idea clarification, product judgment, executable planning, engineering review, TDD, root-cause investigation, QA evidence, and release handoff."
-triggers: [products-skills, product-skills]
+description: "Use whenever the user says product, products, products-skills, product-skills, use products, 走 products, 用 products, or asks an AI agent to take a product idea from concept to shipped product. This is the canonical adaptive product-delivery workflow for idea clarification, product judgment, executable planning, engineering review, TDD, root-cause investigation, QA evidence, and release handoff."
+triggers: [products-skills, product-skills, product, products]
 ---
 
 # Products Skills Router

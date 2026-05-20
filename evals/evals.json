@@ -56,6 +56,13 @@
       "prompt": "Use product-skills for this feature idea: a tiny CRM for freelancers. Help me go from idea to product.",
       "expected_output": "Routes to products-skills, optionally notes product-skills is a legacy alias, selects the right first stage, and uses the adaptive gate response shape.",
       "files": []
+    },
+    {
+      "id": 9,
+      "name": "plain-product-trigger-routes-to-products-skills",
+      "prompt": "Product: I want to turn a habit tracker idea into a small app people can actually use. Help me choose the right next step.",
+      "expected_output": "Treats plain product intent as products-skills, selects the smallest useful first stage, clarifies product direction or risks, and avoids treating it as a generic coding request.",
+      "files": []
     }
   ]
 }

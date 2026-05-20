@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 - 2026-05-20
+
+- Added plain `product` as a direct trigger for the root router.
+- Aligned package metadata skill ordering with the root router.
+
 ## 1.0.2 - 2026-05-20
 
 - Aligned the README workflow table with the router order.
