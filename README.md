@@ -1,62 +1,34 @@
+<div align="center">
+
+<img src="./docs/assets/products-skills-hero-v1.jpg" alt="products-skills product delivery workflow" width="100%">
+
 # products-skills
 
-中文说明为主。English readers: click here for the English version:
-[README.en.md](./README.en.md)
+**让 AI 不只会把需求做出来，还能判断方向、控制范围、验证结果并完成交付。**
 
-**人人都可以是产品经理。**
+[![Version](https://img.shields.io/badge/version-1.0.3-2563eb?style=flat-square)](CHANGELOG.md)
+[![Skills](https://img.shields.io/badge/workflow-1%20router%20%2B%208%20skills-f0523c?style=flat-square)](#一条自适应的产品交付链路)
+[![Codex](https://img.shields.io/badge/agent-Codex-111111?style=flat-square)](#快速安装)
+[![Claude Code](https://img.shields.io/badge/agent-Claude%20Code-d97757?style=flat-square)](#快速安装)
+[![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)](LICENSE)
 
-`products-skills` 是一套公开可复用的 AI 产品落地技能包。它帮助 AI agent
-把一个想法从“感觉可以做”推进到“可以判断、可以拆解、可以验证、可以交付”。
+[快速安装](#快速安装) · [工作流](#一条自适应的产品交付链路) · [使用示例](#直接这样用) · [English](README.en.md)
 
-它不是一套繁琐流程，也不是让 AI 多写几段计划文本。它的目标更简单：
+</div>
 
-- 先判断方向，不急着开工。
-- 先拆小版本，不把想法做成大工程。
-- 先确认根因，不用补丁掩盖问题。
-- 先拿到证据，不靠感觉宣布完成。
-- 最后交付时，留下验证、风险和回滚线索。
+## AI 很会写代码，但产品失败通常发生在写代码之前
 
-如果你经常让 AI 帮你做产品、功能、页面、工具、自动化或完整小应用，
-`products-skills` 可以让 AI 不只是会执行，还会在关键节点帮你做产品判断。
+用户是谁没有说清楚，第一版大得无法验证，bug 没查根因就直接打补丁，页面没真正跑过却宣布完成。这些问题不是“代码能力不足”，而是关键产品动作被跳过了。
 
-## 为什么需要它
+`products-skills` 是一套公开、可复用的 AI 产品落地技能包。它把一个模糊想法推进成可以判断、可以拆解、可以验证、可以交付的产品结果。
 
-AI 很会写代码，但真实产品失败往往不是因为代码写不出来，而是因为这些动作被跳过了：
+> **人人都可以是产品经理。AI 也应该在正确的节点做产品判断。**
 
-- 用户是谁、问题是什么、成功标准是什么，没有讲清楚。
-- 方向还没判断，就直接进入实施。
-- 任务太大，第一版无法验证。
-- 架构、数据流、依赖和错误处理到后面才补。
-- 测试只是事后补一补，没有证明原来的缺口。
-- UI 或运行流程没有真实证据就说完成。
-- bug 没查清根因就直接打补丁。
-- 交付时没有风险、验证记录和回滚说明。
-
-`products-skills` 把这些容易漏掉的产品动作拆成 1 个总路由和 8 个阶段技能。
-AI 会根据当前任务选择最小有用阶段，而不是强迫每件事都走完整流程。
-
-## 适合谁
-
-- 你有一个产品点子，但不知道第一步该做什么。
-- 你想判断一个需求值不值得继续。
-- 你想让 AI 先评审、再规划、再实现。
-- 你正在做功能、页面、工具、SaaS、插件或自动化流程。
-- 你希望 bug 先查根因，而不是直接补丁。
-- 你需要 QA、交付、风险和回滚说明。
-
-## 你会得到什么
-
-| 你想要的结果 | products-skills 怎么帮你 |
-|---|---|
-| 更快判断 | 先做产品价值、风险和范围判断 |
-| 更小第一版 | 把模糊想法收敛成可验证切片 |
-| 更稳实施 | 规划任务、评审工程边界、再进入实现 |
-| 更少乱修 | bug 先查根因，再进入修复 |
-| 更可信交付 | 用测试、运行、浏览器或可见流程证据支撑结论 |
+它不会强迫每个需求走完一套沉重流程。总路由会识别当前状态，只选择最小有用阶段：方向不清先收敛，根因未知先调查，已经完成则直接进入 QA 和交付。
 
 ## 快速安装
 
-公开仓库安装：
+同时安装到 Codex 和 Claude Code：
 
 ```powershell
 npx skills add DOIT-Ben/products-skills -g -a codex claude-code -y --full-depth
@@ -68,139 +40,97 @@ npx skills add DOIT-Ben/products-skills -g -a codex claude-code -y --full-depth
 npx skills add DOIT-Ben/products-skills -g -a codex -y --full-depth
 ```
 
-只安装到 Claude Code：
-
-```powershell
-npx skills add DOIT-Ben/products-skills -g -a claude-code -y --full-depth
-```
-
-先查看会发现哪些 skills：
+只查看将要发现的 Skills：
 
 ```powershell
 npx skills add DOIT-Ben/products-skills --list --full-depth
 ```
 
-安装后请重启 agent 会话，让技能列表刷新。
+安装后重启 Agent 会话，让技能列表刷新。`--full-depth` 不能省略，因为 8 个阶段 Skill 位于子目录中。
 
-## 本地仓库安装
-
-如果你已经 clone 了仓库，也可以在仓库根目录执行：
-
-```powershell
-npx skills add . -g -a codex claude-code -y --full-depth
-```
-
-`--full-depth` 很重要。这个包不只有根目录 `SKILL.md`，还包含 8 个阶段子技能。
-
-## 怎么触发
-
-正式名称是：
+## 直接这样用
 
 ```text
-products-skills
-```
-
-常用触发说法：
-
-```text
-product
-products
-product-skills
-use products
-用 products
-走 products
-```
-
-`product-skills` 是旧名称兼容。推荐新对话里使用 `products-skills` 或 `products`。
-
-## 使用示例
-
-```text
-Use products-skills to turn this idea into a product plan.
+Product：我想做一个习惯追踪小应用，先判断第一版应该解决什么。
 ```
 
 ```text
-走 products，把这个功能从 idea 拆到可执行任务。
+走 products，把这个想法拆成可以验证、可以执行的产品计划。
 ```
 
 ```text
-用 products 看这个 bug，先查根因，不要直接补丁。
+用 products 看这个 bug。先找根因，不要直接打补丁。
 ```
 
 ```text
 Run products QA for this page flow and tell me if it is ship-ready.
 ```
 
-```text
-Product: 我想做一个习惯追踪小应用，帮我判断第一版该怎么做。
-```
+正式名称是 `products-skills`，也支持 `product`、`products`、`product-skills`、`用 products` 和 `走 products`。
 
-## 工作流
+## 一条自适应的产品交付链路
 
-这个包包含 1 个总路由和 8 个阶段技能。
+| 阶段 | Skill | 它负责回答什么 | 可能结论 |
+| --- | --- | --- | --- |
+| 1 | `products-brainstorming` | 用户、问题和成功标准清楚了吗？ | `continue` / `revise` / `stop` |
+| 2 | `products-autoplan` | 这个方向值得继续吗？第一版够小吗？ | `continue` / `revise` / `stop` |
+| 3 | `products-writing-plans` | 能否拆成有验证项的可执行任务？ | `continue` / `revise` |
+| 4 | `products-plan-eng-review` | 架构、数据流、依赖和错误处理可靠吗？ | `continue` / `revise` |
+| 5 | `products-investigate` | 异常真正来自哪里？ | `continue` / `revise` / `fix-next` / `stop` |
+| 6 | `products-test-driven-development` | 如何用测试证明行为变化？ | `continue` / `revise` / `fix-next` |
+| 7 | `products-qa` | UI、CLI 或真实流程是否达到验收标准？ | `ship-ready` / `fix-next` / `revise` |
+| 8 | `products-ship` | 验证、风险、回滚和交接是否完整？ | `ship-ready` / `fix-next` / `stop` |
 
-| 阶段 | Skill | 什么时候用 | 关口结论 |
-|---|---|---|---|
-| 1 | `products-brainstorming` | 想法、用户、问题或成功标准还不清楚 | `continue`, `revise`, `stop` |
-| 2 | `products-autoplan` | 已有粗方向，需要判断值不值得继续 | `continue`, `revise`, `stop` |
-| 3 | `products-writing-plans` | 方向清楚，需要可执行计划和验证项 | `continue`, `revise` |
-| 4 | `products-plan-eng-review` | 实施前需要评审架构、数据流、依赖、错误处理、可测试性 | `continue`, `revise` |
-| 5 | `products-investigate` | bug、回归、异常行为或根因不明的问题 | `continue`, `revise`, `fix-next`, `stop` |
-| 6 | `products-test-driven-development` | 已知根因修复、功能实现、重构或行为变化 | `continue`, `revise`, `fix-next` |
-| 7 | `products-qa` | 实现后需要验证 UI、浏览器、表单、导航、CLI 或运行流程 | `ship-ready`, `fix-next`, `revise` |
-| 8 | `products-ship` | 验证完成后，需要发布、风险、回滚和交接说明 | `ship-ready`, `fix-next`, `stop` |
+### 路由不是流水线
 
-总路由不会强迫每个任务走完 8 个阶段。它会选择当前最小有用阶段。
+- 只有模糊想法：从 `products-brainstorming` 开始。
+- 已有明确方向：可以直接进入计划或工程评审。
+- bug 根因未知：必须先走 `products-investigate`。
+- 根因已知并要改变行为：进入 TDD。
+- 实现已经完成：从 QA 开始，不重走前面的阶段。
 
-特别规则：如果 bug 根因未知，先走 `products-investigate`，不要直接进入 TDD 或补丁。
-
-## 关口结论是什么意思
+## 五个关口结论
 
 | 结论 | 含义 |
-|---|---|
-| `continue` | 当前阶段足够好，可以进入下一个明确阶段 |
-| `revise` | 方向、计划或实现还需要调整 |
-| `stop` | 不建议按当前方式继续 |
-| `fix-next` | 有问题需要先修复，再考虑交付 |
+| --- | --- |
+| `continue` | 当前阶段证据足够，可以进入下一个明确阶段 |
+| `revise` | 方向、计划或实现仍需调整 |
+| `stop` | 不建议按当前方式继续投入 |
+| `fix-next` | 存在必须先修复的问题 |
 | `ship-ready` | 验证和交接证据足够，可以发布或交付 |
+
+## 你会得到什么
+
+- **更快判断**：先辨别产品价值、风险和范围，而不是一上来开工。
+- **更小第一版**：把“大而全”压缩成能快速验证的切片。
+- **更稳实施**：先把任务、架构和验收条件说清楚。
+- **更少乱修**：根因未知时不允许直接进入补丁模式。
+- **更可信交付**：测试、真实运行和可见流程共同支撑结论。
+
+## 支持范围
+
+包元数据兼容 Codex、Claude Code、Cursor、Windsurf、Copilot、Kiro、OpenCode 和 Continue 等 Agent 环境。不同客户端的 Skill 发现与安装能力可能不同，当前推荐使用 `npx skills` 安装。
 
 ## 仓库结构
 
 ```text
 products-skills/
-  SKILL.md
-  README.md
-  README.en.md
-  CHANGELOG.md
-  skill.json
-  evals/
-    evals.json
-  .codex-plugin/
-    plugin.json
-  .claude-plugin/
-    plugin.json
-    marketplace.json
-  products-brainstorming/
-    SKILL.md
-  products-autoplan/
-    SKILL.md
-  products-writing-plans/
-    SKILL.md
-  products-plan-eng-review/
-    SKILL.md
-  products-investigate/
-    SKILL.md
-  products-test-driven-development/
-    SKILL.md
-  products-qa/
-    SKILL.md
-  products-ship/
-    SKILL.md
+├── SKILL.md                         # 总路由
+├── products-brainstorming/
+├── products-autoplan/
+├── products-writing-plans/
+├── products-plan-eng-review/
+├── products-investigate/
+├── products-test-driven-development/
+├── products-qa/
+├── products-ship/
+├── evals/evals.json
+├── skill.json
+├── .codex-plugin/plugin.json
+└── .claude-plugin/
 ```
 
 ## 发布前验证
-
-发布前可执行：
 
 ```powershell
 npx skills add . --list --full-depth
@@ -209,15 +139,12 @@ npx skills list -g -a codex --json
 npx skills list -g -a claude-code --json
 ```
 
-场景测试在 `evals/evals.json`，覆盖模糊想法、粗方向、实施计划、bug、QA、交付、
-非产品短问答和旧名兼容。
+场景测试位于 `evals/evals.json`，覆盖模糊想法、产品判断、工程计划、未知根因 bug、QA、交付、非产品短问答和旧名称兼容。
 
-## 英文版
+## English
 
-英文读者可点击进入：
-
-- [README.en.md](./README.en.md)
+Read the full English documentation in [README.en.md](README.en.md).
 
 ## License
 
-MIT
+[MIT License](LICENSE) © 2026 DOIT-Ben
